@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var authRouter  = require('./routes/auth');
 
 var middlewares = require('./middlewares');
+var User = require('./repositories').User;
 
 
 var app = express();
@@ -27,26 +28,34 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['htm', 'html'] }));
 app.use(session({ secret: 'keyboard cat' }));
+app.use((req, res, next) => {
+  console.log(req.method, req.body, req.url);
+  next();
+});
+
+middlewares.passport(passport);
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+passport.deserializeUser(function(id, done) {
+    console.log('id: ', id);
+    User.findById(id, function(err, user) {
+        console.log(user);
+        done(err, user);
+    });
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  console.log(req.method, req.body, req.url);
+  next();
+});
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 
-
-
-
-
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

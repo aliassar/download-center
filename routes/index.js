@@ -3,10 +3,13 @@ var fs = require('fs');
 var router = express.Router();
 const indexRouteHandler = require('../controllers');
 const utils             = require('../utils');
-var passport = require('passport');
 
 // router.post('/signup', indexRouteHandler.signup(router, passport));
 router.post('/signup', indexRouteHandler.signup);
-// router.post('/login', indexRouteHandler.login(router, passport));
+router.post('/login', indexRouteHandler.login);
+router.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+});
 
 module.exports = router;
