@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<link rel="stylesheet" href="signup.css">
+	</head>
+	<body>
+		<div id="sun">
+			<div id="rings">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="little-rectangle">
+			</div>
+			<form action="/signup" method="post" class="form-custom">
+				<div class="form-group">
+					<label for="exampleInputName" class="ml-5 pl-3" >First Name</label>
+					<input type="text" class="form-control w-70" id="exampleInputName" placeholder="First Name" name="firstName" >
+				</div>
+				<div class="form-group">
+					<label for="exampleInputLastName" class="ml-5 pl-3" >Last Name</label>
+					<input type="text" class="form-control w-70" id="exampleInputLastName" placeholder="Last Name" name="lastName" >
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1" class="ml-5 pl-3" >Email address</label>
+					<input type="email" class="form-control w-70" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" >
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1" class="ml-5 pl-3" >Password</label>
+					<input type="password" class="form-control w-70" id="exampleInputPassword1" placeholder="Password" name="password" >
+				</div>
+			  <button type="submit" class="btn btn-primary m1-10">Submit</button>
+			</form>
+		</div>
+	</body>
+
+</html>
