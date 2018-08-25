@@ -2,6 +2,6 @@ var passport = require('passport');
 
 module.exports =
     passport.authenticate('login', {
-    	successRedirect : '/',
+    	successRedirect : '/secondHome',
     	failureRedirect : '/login',
     });
