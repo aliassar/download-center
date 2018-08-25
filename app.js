@@ -35,6 +35,7 @@ app.use((req, res, next) => {
 });
 
 middlewares.passport(passport);
+
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
