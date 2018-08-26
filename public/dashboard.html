@@ -1,52 +1,53 @@
-</!DOCTYPE html>
-<html>
-	<head>
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<link href="dashboard.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="dashboards.js"></script>
-		<!------ Include the above in your HEAD tag ---------->
-	</head>
-	<body>
-		<div class="container bg-light p-5 rounded shadow">
-			  <div class="panel panel-default">
-				<div class="panel-heading"><strong>Upload Files</strong> <small>Bootstrap files upload</small></div>
-				<div class="panel-body">
-				  <!-- Standar Form -->
-				  <h4>Select files from your computer</h4>
-				  <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
-					<div class="form-inline">
-					  <div class="form-group btn btn-light-blue float-left">
-						<input type="file" name="files[]" id="js-upload-files" multiple>
-					  </div>
-					  <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
-					</div>
-				  </form>
+<!DOCTYPE html>
+<html lang="en" >
 
-				  <!-- Drop Zone -->
-				  <h4>Or drag and drop files below</h4>
-				  <div class="upload-drop-zone" id="drop-zone">
-					Just drag and drop files here
-				  </div>
+<head>
+  <meta charset="UTF-8">
+  <title>File Upload & Image Preview</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-				  <!-- Progress Bar -->
-				  <div class="progress">
-					<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-					  <span class="sr-only">60% Complete</span>
-					</div>
-				  </div>
+  
+      <link rel="stylesheet" href="css/style.css">
 
-				  <!-- Upload Finished -->
-				  <div class="js-upload-finished">
-					<h3>Processed files</h3>
-					<div class="list-group">
-					  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>
-					  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-02.jpg</a>
-					</div>
-				  </div>
-				</div>
-			  </div>
-			</div> <!-- /container -->
-	</body>
+  
+</head>
+
+<body>
+
+  <h2>File Upload & Image Preview</h2>
+<p class="lead">No Plugins <b>Just Javascript</b></p>
+
+<!-- Upload  -->
+<form id="file-upload-form" class="uploader" action="/upload" method="post" enctype="multer/form-data">
+  <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+  <label for="file-upload" id="file-drag">
+    <img id="file-image" src="#" alt="Preview" class="hidden">
+    <div id="start">
+      <i class="fa fa-download" aria-hidden="true"></i>
+      <div>Select a file or drag here</div>
+      <div id="notimage" class="hidden">Please select an image</div>
+      <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+    </div>
+    <div id="response" class="hidden">
+      <div id="messages"></div>
+      <progress class="progress" id="file-progress" value="0">
+        <span>0</span>%
+      </progress>
+    </div>
+  </label>
+  <input type="submit" value="submit">
+</form>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
 </html>
