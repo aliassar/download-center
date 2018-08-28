@@ -18,7 +18,9 @@ var User = require('./models/users');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:3000');
+mongoose.connect('mongodb://khorshid:123abc@ds022228.mlab.com:22228/khorshiddb', {useNewUrlParser:true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
