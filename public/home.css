@@ -20,7 +20,6 @@ html, body {
 	float: left;
 	margin-top: -60px;
 }
-
 .khorshid {
 	font-family: khorshid;
 	text-align: center;
@@ -28,6 +27,13 @@ html, body {
 	color: yellow;
 	margin-top: -10px;
 }
+
+/*@media only screen and (max-width: 900px;) 
+{
+	.khorshid {
+		display: none;
+	}
+} */
 
 .sign-button {
 	font-size: 25px;

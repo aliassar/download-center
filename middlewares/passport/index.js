@@ -12,8 +12,8 @@ module.exports = (passport) => {
                 newUser.email = email;
                 newUser.password = newUser.generateHash(password);
                 newUser.save((err)=>{
-                if(err) throw err;
-                return done(null,newUser);
+                  if(err) throw err;
+                    return done(null,newUser);
                 });
             }
         });

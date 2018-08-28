@@ -6,7 +6,13 @@ var userSchema = mongoose.Schema({
         unique:true
     },
     password:{
-        type: String
+        type: String,
+    },
+    firstName: {
+    	type: String,
+    },
+    lastName: {
+    	type: String,
     }
 });
 
