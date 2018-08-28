@@ -14,15 +14,11 @@ var usersRouter = require('./routes/users');
 var authRouter  = require('./routes/auth');
 var uploadRouter  = require('./routes/upload');
 var middlewares = require('./middlewares');
-var User = require('./repositories').User;
+var User = require('./models/users');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017', {useMongoClient : true}, (err, client) => {
-  if(err) {
-    throw err
-  }
-});
+mongoose.connect('mongodb://localhost:3000');
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
