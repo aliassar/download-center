@@ -14,9 +14,10 @@ var upload = multer({storage: storage});
 
 
 router.post('/', upload.single('image'), (req, res, next) => {
+    console.log("entered here!!!!!!!!!!!")
     // console.log(req.query.name);
     // res.status(200).send();
-    res.send();
+    res.send("hello");
     // MongoClient.connect(url, (err, db) => {
     //     assert.equal(null, err);
     //     insertDocuments(db, 'public/images/uploads/' + req.file.filename, () => {
