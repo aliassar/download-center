@@ -7,21 +7,26 @@ var passport = require('passport');
 var fs = require('fs');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter  = require('./routes/auth');
 var uploadRouter  = require('./routes/upload');
-
 var middlewares = require('./middlewares');
 var User = require('./repositories').User;
 
-
 var app = express();
 
+mongoose.connect('mongodb://localhost:27017', {useMongoClient : true}, (err, client) => {
+  if(err) {
+    throw err
+  }
+});
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -29,10 +34,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['htm', 'html'] }));
 app.use(session({ secret: 'keyboard cat' }));
-app.use((req, res, next) => {
-  console.log(req.method, req.body, req.url);
-  next();
-});
 
 middlewares.passport(passport);
 
@@ -40,9 +41,7 @@ passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
 passport.deserializeUser(function(id, done) {
-    console.log('id: ', id);
     User.findById(id, function(err, user) {
-        console.log(user);
         done(err, user);
     });
 });
@@ -50,10 +49,6 @@ passport.deserializeUser(function(id, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  console.log(req.method, req.body, req.url);
-  next();
-});
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
