@@ -1,48 +1,52 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 100%;
-}
-.background {
-	background-image: url("textured-background.jpg");
 }
 
-.navbar-custom {
-	width: 100%;
-	max-width: 100%;
-	height: 100px;
-	background-color: teal;
-	padding: 0;
-	margin: 0;
+.navbar {
+  min-height: 130px;
+  background-color: #A49592;
+  /*background-color: #7DA3A1;*/
 }
-.logo {
-	float: left;
-	margin-top: -60px;
+
+.navbar-brand {
+  padding: 0 15px;
 }
+
+.navbar-toggle {
+  margin-top: 3px;
+  padding: 1px 1px !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
+    line-height: 25px;
+  }
+}
+
+li {
+    padding: 5px 5px;
+}
+
+.background {
+	background-color: #f9f1ec;
+	/*background-image: url("4.jpg");*/
+}
+
 .khorshid {
 	font-family: khorshid;
 	text-align: center;
-	font-size: 80px;
-	color: yellow;
-	margin-top: -10px;
+	font-size: 60px;
+	color: #453c3a;
+	
 }
-
-/*@media only screen and (max-width: 900px;) 
-{
-	.khorshid {
-		display: none;
-	}
-} */
 
 .sign-button {
 	font-size: 25px;
-	float: right;
-	color: #004d4d;
-	padding: 10px;
-	margin-top: 20px;
-	font-weight: bold;
-
+	color: #324851;
+	font-weight: bolder;
 }
 
 a:hover {
@@ -54,20 +58,18 @@ a:link {
 }
 
 .pic {
-	padding: 0;
-	margin: 0;
 	width: 600px;
 	height: 600px;
 	border-radius: 50%;
 }
 .text {
 	border-style: solid;
-	border-color: darkslategrey;
-	border-width: 5px;
+	border-color: #727077;
+	border-width: 7px;
 	border-radius: 60px;
 	text-align: center;
 	font-family: text_font;
-	font-size: 40px;
+	font-size: 30px;
 }
 
 .about_us {
@@ -75,7 +77,7 @@ a:link {
 	border-width:10px;
 	border-style: groove;
 	border-radius: 40;
-	border-color: teal;
+	border-color: #727077;
 	width: 100%;
 	max-width: 100%;
 	text-align: center;
@@ -103,5 +105,5 @@ a:link {
 }
 @font-face{	
 	font-family: khorshid;
-	src:url("Smile of the Ocean.ttf");
+	src:url("./fonts/BFarnaz.ttf");
 }

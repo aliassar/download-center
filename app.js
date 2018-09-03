@@ -11,7 +11,6 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var authRouter  = require('./routes/auth');
 var uploadRouter  = require('./routes/upload');
 var middlewares = require('./middlewares');
 var User = require('./models/users');
@@ -31,7 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'), { extensions: ['htm', 'html'] }));
-app.use(session({ secret: 'keyboard cat' }));
+app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true }));
 
 middlewares.passport(passport);
 
@@ -49,7 +48,6 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/auth', authRouter);
 app.use('/upload',uploadRouter);
 
 
