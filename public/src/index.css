@@ -1,0 +1,10 @@
+@import url("components/drag-and-drop/index.css");
+body {
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
+	height: 100vh;
+	/* background-image: url(textured-background.jpg); */
+	background-color: #f9f1ec;
+
+}

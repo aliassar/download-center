@@ -1,0 +1,78 @@
+body {
+  background-color: #DC5848;
+}
+
+p {
+  margin-top: 0;
+}
+
+.my-form {
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 28px 10px 28px;
+  background: #727077;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #324851;
+}
+
+.button:hover {
+  background: white;
+  color: #727077;
+}
+
+#fileElem {
+  display: none;
+}
+
+#drop-area {
+  border: 10px dashed #727077;
+  border-radius: 20px;
+  width: 480px;
+  font-family: Lato;
+  margin: 100px auto;
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#drop-area.highlight {
+  border-color: white;
+}
+
+#gallery {
+  margin-top: 10px;
+}
+
+#gallery img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+progress,
+progress[role][aria-valuenow] {
+  background: #727077;
+  border-radius: 5px;
+  border: none;
+}
+
+::-webkit-progress-bar {
+  background-color: #727077;
+  border-radius: 5px;
+}
+
+::-webkit-progress-value {
+  background-color: white;
+  border-radius: 5px;
+}
+
+::-moz-progress-bar {
+  background-color: white;
+
+  border-radius: 5px;
+}
