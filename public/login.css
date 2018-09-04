@@ -4,7 +4,8 @@ body {
 				justify-content: center;
 				align-items: center;
 				height: 100vh;
-				background-image: url(textured-background.jpg);
+				/* background-image: url("./pics/textured-background.jpg"); */
+				background-color: #f9f1ec;
 			}
 			.card{
 				width:400px;
