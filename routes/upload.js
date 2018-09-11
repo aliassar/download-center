@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
+var path = require('path');
+var fs = require('fs');
 
 var storage = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -14,16 +16,16 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 router.post('/', upload.single('filename'), (req, res, next) => {
-    console.log(req.file.originalname)
-    res.send("uploaded")
-    // res.status(200).send();
-    // MongoClient.connect(url, (err, db) => {
-    //     assert.equal(null, err);
-    //     insertDocuments(db, 'public/images/uploads/' + req.file.filename, () => {
-    //         db.close();
-    //         res.json({'message': 'File uploaded successfully'});
-    //     });
-    // });
+  var oldPath = req.file.path;
+  var newPath = __dirname + '..' + 'public' + 'uploads' + req.body.username;
+  console.log('hey: ', oldPath, newPath);
+  console.log(req.body.username)
+  // fs.rename(oldPath, newPath, err => {
+  //     if (err) return console.error(err);
+  //     console.log('success!');
+  // });
+    res.status(200).send();
+    res.redirect('/upload');
 });
 
 module.exports = router;
