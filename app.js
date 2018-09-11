@@ -16,6 +16,7 @@ var User = require('./models/users');
 var app = express();
 
 mongoose.connect('mongodb://USER:PASSWORD@localhost:27017/khorshiddb', {useNewUrlParser:true});
+// USER:PASSWORD@localhost:27017
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
