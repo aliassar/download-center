@@ -1,19 +1,24 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../../models/users');
+var fs = require('fs');
+var path = require('path')
 
 
 module.exports = (passport) => {
-    passport.use('signup', new LocalStrategy({passReqToCallback: true}, (req, email, password, done) => {
-        console.log('signUp: ', req, email, password, done);
-        User.findOne( {email: email} , (err, user)=> {
+    passport.use('signup', new LocalStrategy({passReqToCallback: true}, (req, username, password, done) => {
+        console.log('signUp: ', req, username, password, done);
+        User.findOne( {username: username} , (err, user)=> {
             if (err) { return done(err); }
             if (user) { return done(null, false, { message: 'User Already Exists!' }); }
             else {
                 var newUser = new User();
-                newUser.email = email;
+                newUser.username = username;
                 newUser.password = newUser.generateHash(password);
                 newUser.firstName = req.body.firstName;
                 newUser.lastName = req.body.lastName;
+                newUser.email = req.body.email;
+                fs.mkdirSync(path.join(__dirname, '..', '..', 'public', 'uploads', username));
+
                 newUser.save((err)=>{
                   if(err) throw err;
                     return done(null, newUser);
@@ -22,8 +27,8 @@ module.exports = (passport) => {
         });
     }));
 
-    passport.use('login', new LocalStrategy((email, password, done) => {
-        User.findOne( {email: email} , (err, user) => {
+    passport.use('login', new LocalStrategy((username, password, done) => {
+        User.findOne( {username: username} , (err, user) => {
           if (err) { return done(err); }
           if (!user || !user.validPassword(password)) {
             return done(null, false, { message: 'Username or Password is Invalid!'});
