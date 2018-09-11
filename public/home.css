@@ -101,9 +101,11 @@ a:link {
 
 @font-face{
 	font-family: text_font;
-	src:url("Grovflab DEMO.otf");
+	/* src:url("Grovflab DEMO.otf"); */
+	src:url("./fonts/Shabnam.ttf");
 }
 @font-face{	
 	font-family: khorshid;
-	src:url("./fonts/BFarnaz.ttf");
+	/* src:url("./fonts/BFarnaz.ttf"); */
+	src:url("./fonts/Vazir-Black-FD-WOL.ttf");
 }

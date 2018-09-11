@@ -18,6 +18,7 @@ var User = require('./models/users');
 var app = express();
 
 mongoose.connect('mongodb://khorshid:123abc@ds022228.mlab.com:22228/khorshiddb', {useNewUrlParser:true});
+// khorshid:123abc@ds022228.mlab.com
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
