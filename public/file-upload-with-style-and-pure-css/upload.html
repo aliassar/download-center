@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>File upload with style and pure CSS</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <form action="/upload" method="post" enctype="multipart/form-data">
+  
+  <h1><strong>File upload</strong> with style and pure CSS</h1>
+  
+ <!--  <div class="form-group">
+    <label for="title">Title <span>Use title case to get a better result</span></label>
+    <input type="text" name="title" id="title" class="form-controll"/>
+  </div> -->
+  <!-- <div class="form-group">
+    <label for="caption">Caption <span>This caption should be descriptiv</span></label>
+    <input type="text" name="caption" id="caption" class="form-controll"/>
+  </div> -->
+  
+  <div class="form-group file-area">
+        <label for="images">Images <span>Your images should be at least 400x300 wide</span></label>
+    <input type="file" name="filename" id="images" required="required" multiple="multiple"/>
+    <div class="file-dummy">
+      <div class="success">Great, your files are selected. Keep on.</div>
+      <div class="default">Please select some files</div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <input type="submit" value="upload">
+  </div>
+  
+</form>
+
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
+
+<a href="http://scribblerockerz.com/drag-n-drop-file-input-without-javascript/" class="back-to-article" target="_blank">back to Article</a>
+  
+  
+
+</body>
+
+</html>
