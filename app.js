@@ -4,13 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
-var fs = require('fs');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var uploadRouter  = require('./routes/upload');
 var middlewares = require('./middlewares');
 var User = require('./models/users');
@@ -47,7 +45,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/upload',uploadRouter);
 
 
