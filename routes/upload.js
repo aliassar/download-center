@@ -19,7 +19,6 @@ router.post('/', upload.single('filename'), (req, res, next) => {
   var oldPath = req.file.path;
   var newPath = __dirname + '..' + 'public' + 'uploads' + req.body.username;
   console.log('hey: ', oldPath, newPath);
-  console.log(req.body.username)
   // fs.rename(oldPath, newPath, err => {
   //     if (err) return console.error(err);
   //     console.log('success!');
