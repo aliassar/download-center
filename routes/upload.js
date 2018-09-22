@@ -16,13 +16,16 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 router.post('/', upload.single('filename'), (req, res, next) => {
+  var dir = path.join(__dirname , '..' , 'public' , 'uploads' , req.user.username);
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+  }
   var oldPath = req.file.path;
-  var newPath = __dirname + '..' + 'public' + 'uploads' + req.body.username;
-  console.log('hey: ', oldPath, newPath);
-  // fs.rename(oldPath, newPath, err => {
-  //     if (err) return console.error(err);
-  //     console.log('success!');
-  // });
+  var newPath = path.join(dir, path.basename(req.file.path));
+  fs.rename(oldPath, newPath, err => {
+      if (err) return console.error(err);
+      console.log('success!');
+  });
     res.status(200).send();
     res.redirect('/upload');
 });
