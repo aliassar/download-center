@@ -7,8 +7,8 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-	    <link rel="stylesheet" href="css/style.css">
-	    <link rel="stylesheet" href="home.css">
+	    <link rel="stylesheet" href="../public/css/style.css">
+	    <link rel="stylesheet" href="../public/home.css">
 	</head>
 
 	<body>
@@ -27,10 +27,10 @@
 		  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	  			<ul class="navbar-nav" >
 		      		<li class="nav-item">
-		        		<a href="index.html"; class="sign-button nav-link">خروج</a>
+		        		<a href="index.ejs"; class="sign-button nav-link">خروج</a>
 		      		</li>
 		      		<li class="nav-item">
-		        		<a href="secondHome.html"; class="sign-button nav-link">خانه</a>
+		        		<a href="secondHome.ejs"; class="sign-button nav-link">خانه</a>
 		      		</li>
 	    		</ul>
 		  	</div>  
@@ -46,8 +46,13 @@
 	  		</div>
 	  		<div class="form-group">
 	    		<input type="submit" value="upload">
-	  		</div>  
+			  </div>  
 		</form>
+		<div>
+		<% for(var i=0; i<filenames.length; i++) {%>
+			<img src="../public/uploads/<%= filenames[i] %>"/>
+		<% } %>
+		</div>
 		<link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
 	</body>
 </html>

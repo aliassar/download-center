@@ -22,12 +22,17 @@ router.post('/', upload.single('filename'), (req, res, next) => {
   }
   var oldPath = req.file.path;
   var newPath = path.join(dir, path.basename(req.file.path));
+
   fs.rename(oldPath, newPath, err => {
       if (err) return console.error(err);
       console.log('success!');
   });
+  fs.readdir(dir, (err, filenames) => {
+    res.render(__dirname + "../views/upload.ejs", {filenames});
+  });
     res.status(200).send();
     res.redirect('/upload');
+    
 });
 
 module.exports = router;
