@@ -9,7 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-var uploadRouter  = require('./routes/upload');
+var uploadRouter  = require('./routes/upload.js');
 var middlewares = require('./middlewares');
 var User = require('./models/users');
 
@@ -21,14 +21,14 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'), { extensions: ['htm', 'html'] }));
+app.use(express.static(path.join(__dirname, 'public') ));
 app.use(session({ secret: 'keyboard cat', saveUninitialized: true, resave: true }));
 
 middlewares.passport(passport);
@@ -61,7 +61,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(err.status );
   res.render('error');
 });
 
