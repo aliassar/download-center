@@ -12,6 +12,9 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
     res.render('signup')
 });
+router.get('/secondHome', (req, res) => {
+    res.render('secondHome')
+});
 router.post('/signup', indexRouteHandler.signup);
 router.post('/login', indexRouteHandler.login);
 router.get('/logout', (req, res) => {
