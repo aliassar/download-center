@@ -9,7 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-var uploadRouter  = require('./routes/upload.js');
+var uploadRouter  = require('./routes/upload');
 var middlewares = require('./middlewares');
 var User = require('./models/users');
 
@@ -61,7 +61,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status );
+  res.status(err.status || 500);
   res.render('error');
 });
 

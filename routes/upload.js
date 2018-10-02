@@ -5,37 +5,41 @@ var path = require('path');
 var fs = require('fs');
 
 router.get('/', (req, res) => {
-  res.render('upload')
+  var username = req.user.username;
+  var dir = path.join(__dirname , '..' , 'public' , 'uploads' , username);
+  fs.readdir(dir, (err, filenames) => {
+    console.log('filenames: ', filenames);
+    res.render('upload', { filenames, username });
+  });
 });
-// var storage = multer.diskStorage({
-//     destination: (req, file, callback) => {
-//       callback(null, 'public/uploads')
-//     },
-//     filename: (req, file, callback) => {
-//       callback(null, file.originalname + '-' + Date.now())
-//     }
-// });
 
-// var upload = multer({storage: storage});
+var storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+      callback(null, 'public/uploads')
+    },
+    filename: (req, file, callback) => {
+      callback(null, file.originalname + '-' + Date.now())
+    }
+});
 
-// router.post('/', upload.single('filename'), (req, res, next) => {
-//   var dir = path.join(__dirname , '..' , 'public' , 'uploads' , req.user.username);
-//   if (!fs.existsSync(dir)){
-//     fs.mkdirSync(dir);
-//   }
-//   var oldPath = req.file.path;
-//   var newPath = path.join(dir, path.basename(req.file.path));
+var upload = multer({storage: storage});
 
-//   fs.rename(oldPath, newPath, err => {
-//       if (err) return console.error(err);
-//       console.log('success!');
-//   });
-//   fs.readdir(dir, (err, filenames) => {
-//     res.render('upload', {filenames});
-//   });
-//     res.status(200).send();
-//     res.redirect('/upload');
-    
-// });
+router.post('/', upload.single('filename'), (req, res, next) => {
+  var username = req.user.username;
+  var dir = path.join(__dirname , '..' , 'public' , 'uploads' , username);
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+  }
+  var oldPath = req.file.path;
+  var newPath = path.join(dir, path.basename(req.file.path));
+
+  fs.rename(oldPath, newPath, err => {
+      if (err) return res.render({ message: err.message, ...err });
+      fs.readdir(dir, (err, filenames) => {
+        console.log('filenames: ', filenames);
+        res.render('upload', { filenames, username });
+      });
+  })
+});
 
 module.exports = router;
