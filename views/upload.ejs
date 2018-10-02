@@ -35,7 +35,11 @@
 	    		</ul>
 		  	</div>  
 		</nav>
-
+		<div class="d-flex flex-row bd-highlight mb-3 pl-4 pt-4">
+			<% for(var i=0; i<filenames.length; i++) {%>
+				<img style="height:100px; width:100px" class="m-2 rounded" src="/uploads/<%= username %>/<%= filenames[i] %>" alt="Uploaded File" >
+			<% } %>
+		</div>
     	<form action="/upload" method="post" enctype="multipart/form-data">
 	  		<div class="form-group file-area">
 	    		<input type="file" name="filename" id="images" required="required" multiple="multiple"/>
@@ -48,11 +52,6 @@
 	    		<input type="submit" value="upload">
 			  </div>  
 		</form>
-		<div>
-		<!-- <% for(var i=0; i<filenames.length; i++) {%>
-			<img src="/uploads/<%= filenames[i] %>">
-		<% } %> -->
-		</div>
 		<link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
 	</body>
 </html>
