@@ -4,13 +4,12 @@ body {
 				justify-content: center;
 				align-items: center;
 				height: 100vh;
-				/* background-image: url("./pics/textured-background.jpg"); */
-				background-color: #f9f1ec;
+				background-color: #ffffff;
 			}
 			.card{
 				width:400px;
 				height:400px;
-				background-color:lavender;
+				background-color:#F9F1EC;
 				display:flex;
 				flex-direction:row;
 				border-radius:8px;
@@ -19,18 +18,18 @@ body {
 				box-shadow: 5px 8px 9px 1px rgba(136,136,136,0.43);
 			}
 			.little-rectangle{
-				background-color:#6bbaa7;
+				background-color:#A49592;
 				width:5px;
 				height:60px;
 				margin-top:40px;
 			}
 			.w-70{
 				margin:auto;
-				width:70%;
+				width:76%;
 			}
 			.w-76{
 				margin:auto;
-				width:76%;
+				width:80%;
 				margin-bottom:14px;
 			}
 			.m1-10{
