@@ -4,7 +4,7 @@ html, body {
 }
 
 .navbar {
-  min-height: 130px;
+  min-height: 100px;
   background-color: #A49592;
   /*background-color: #7DA3A1;*/
 }
@@ -38,7 +38,7 @@ li {
 .khorshid {
 	font-family: khorshid;
 	text-align: center;
-	font-size: 60px;
+	font-size: 50px;
 	color: #453c3a;
 	
 }
