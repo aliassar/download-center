@@ -33,7 +33,7 @@ Node.js with Express 4.16, EJS 2.6, Passport 0.4 with passport-local, Mongoose 5
 ## Configuration
 
 - `PORT` - HTTP port, default 3000.
-- The MongoDB connection string and session secret are hard-coded in `app.js` rather than read from the environment. Replace the connection string with your own MongoDB before running.
+- The MongoDB connection string in `app.js` is a placeholder (`USER:PASSWORD@localhost`). Put your own there before running.
 
 ## Run it
 
